@@ -10,8 +10,8 @@
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -44,6 +44,18 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
-      </nav>
+    </nav>
+    <p> </p>
+    <!--De cada película se debe presentar el póster (una imagen asociada), el título, el género al que pertenece y su puntuación si es que tiene-->
+    <div class="card mb-3 w-75 mx-auto">
+        <img src="4838218.jpg" class="card-img-top w-25 mx-auto" >
+        <div class="card-body">
+          <h5 class="card-title">No te metas con Zohan</h5>
+          <p class="card-text"><b>Genero:</b> Sexo</p> 
+          <p class="card-text"><b>Puntuacion:</b> 5/5</p>
+          <!----<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+        </div>
+        <a href="pelicula.php" type="button"> Mas informacion </a>
+    </div>
 </body>
 </html>
