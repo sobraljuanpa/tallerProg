@@ -62,6 +62,17 @@
           <button id="1.boton" type="button" class="btn btn-outline-danger mx-auto" onclick="mostrarVideo()">Ver video</button>
           <!----<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
         </div>
+        <div class="w-75 mx-auto">
+            <div class="card">
+                <div class="card-header"><b>Estrellas:</b> 5/5 </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Tremenda peli ñery</p>
+                            <footer class="blockquote-footer">Ricardo Fort</footer>
+                        </blockquote>
+                    </div>
+            </div>    
+        </div>  
       </div>
 </body>
 </html>
