@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+    require_once 'datos.php';
+    ini_set('display_errors', 1);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,32 +51,30 @@
     </nav>
       <p> </p>
       <!--CARDS-->
-      <div class="card mb-3 w-75 mx-auto">
-        <div w-75 mx-auto>
-            <iframe id="1.video" style="visibility:hidden" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-            <img id="1" src="4838218.jpg" class="card-img-top w-25 mx-auto">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">No te metas con Zohan</h5>
+          <!--<h5 class="card-title">No te metas con Zohan</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><b>Fecha de lanszamiento:</b> 01/03/2020</p> 
           <p class="card-text"><b>Descripcion:</b> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><b>Director:</b> Juan Pablo Sobral</p>
           <p class="card-text"><b>Actores:</b> Rodrigo Bertolotti, Juan Perez, Tu Vieja</p>
           <button id="1.boton" type="button" class="btn btn-outline-danger mx-auto" onclick="mostrarVideo()">Ver video</button>
-          <!----<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+          <?php
+            foreach (getPelicula() as $pelicula) {
+                echo('<li>');
+                echo('<div class="card mb-3 w-75 mx-auto">
+                      <div w-75 mx-auto>
+                      <iframe id="1.video" style="visibility:hidden" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                      <img id="1" src="4838218.jpg" class="card-img-top w-25 mx-auto">
+                      </div>
+                      <div class="card-body">');
+                echo('<h5 class="card-title">'.$pelicula["titulo"].'</h5>');
+                echo('<p class="card-text">'.$pelicula["resumen"].'</p>');
+                echo('<p class="card-text"><b>Director:</b>'.$pelicula["director"].'</p>');
+                echo('</li>');
+            }
+           ?>
         </div>
-        <div class="w-75 mx-auto">
-            <div class="card">
-                <div class="card-header"><b>Estrellas:</b> 5/5 </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <p>Tremenda peli ñery</p>
-                            <footer class="blockquote-footer">Ricardo Fort</footer>
-                        </blockquote>
-                    </div>
-            </div>    
-        </div>  
       </div>
 </body>
 </html>

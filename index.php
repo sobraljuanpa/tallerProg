@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+    require_once 'datos.php';
+    ini_set('display_errors', 1);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,16 +50,22 @@
         </div>
     </nav>
     <p> </p>
-    <!--De cada película se debe presentar el póster (una imagen asociada), el título, el género al que pertenece y su puntuación si es que tiene-->
-    <div class="card mb-3 w-75 mx-auto">
-        <img src="4838218.jpg" class="card-img-top w-25 mx-auto" >
-        <div class="card-body">
-          <h5 class="card-title">No te metas con Zohan</h5>
-          <p class="card-text"><b>Genero:</b> Sexo</p> 
-          <p class="card-text"><b>Puntuacion:</b> 5/5</p>
-          <!----<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-        </div>
-        <a href="pelicula.php" type="button"> Mas informacion </a>
-    </div>
+    <!--De cada película se debe presentar el póster (una imagen asociada),
+    el título, el género al que pertenece y su puntuación si es que tiene-->
+    <?php
+            foreach (getPelicula() as $pelicula) {
+                echo('<li>');
+                echo('<div class="card mb-3 w-75 mx-auto">
+                      <div w-75 mx-auto>
+                      <img id="1" src="4838218.jpg" class="card-img-top w-25 mx-auto">
+                      </div>
+                      <div class="card-body">');
+                echo('<h5 class="card-title">'.$pelicula["titulo"].'</h5>');
+                echo('<p class="card-text">'.$pelicula["id_genero"].'</p>');//Cambiarlo
+                echo('<p class="card-text"><b>Director:</b>5/5</p>');//Cambiarlo
+                echo('<a href="pelicula.php" type="button"> Mas informacion </a>');
+                echo('</li>');
+            }
+    ?>
 </body>
 </html>
