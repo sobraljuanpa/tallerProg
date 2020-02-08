@@ -31,7 +31,7 @@
       if (isset($_SESSION["loggedUser"])) {   
         echo('<a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>');
       } else {
-        echo('<button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button>');
+        echo('<a href="registerPage.php"><button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button></a>');
         echo('<a href="loginPage.php"><button type="button" class="btn btn-primary" style="margin-left: 10px;">Iniciar sesión</button></a>');
       }
     ?>
