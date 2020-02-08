@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>BDPI</title>
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
@@ -26,11 +26,22 @@
         </li>
       </ul>
     </div>
-
-    <button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button>
-    <button type="button" class="btn btn-primary" style="margin-left: 10px;">Login</button>
-    <button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button>
-
-    </nav>
+    <?php
+      session_start();
+      if (isset($_SESSION["loggedUser"])) {   
+        echo('<a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>');
+      } else {
+        echo('<button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button>');
+        echo('<a href="loginPage.php"><button type="button" class="btn btn-primary" style="margin-left: 10px;">Iniciar sesión</button></a>');
+      }
+    ?>
+  </nav>
+  <?php
+    session_start();
+    if (isset($_SESSION["loggedUser"])) {
+      $user = $_SESSION["loggedUser"];   
+      echo('<h1>Hola ' . $user["name"] . '</h1>');
+    }
+  ?>
 </body>
 </html>
