@@ -28,7 +28,7 @@
     </div>
 
     <button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button>
-    <button type="button" class="btn btn-primary" style="margin-left: 10px;">Login</button>
+    <a href="loginPage.php"><button type="button" class="btn btn-primary" style="margin-left: 10px;">Iniciar sesión</button></a>
     <button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button>
 
     </nav>
