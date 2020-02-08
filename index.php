@@ -29,8 +29,15 @@
 
     <button type="button" class="btn btn-secondary" style="margin-left: 10px;">Registro</button>
     <a href="loginPage.php"><button type="button" class="btn btn-primary" style="margin-left: 10px;">Iniciar sesión</button></a>
-    <button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button>
+    <a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>
 
     </nav>
+    <?php
+    session_start();
+    if (isset($_SESSION["loggedUser"])) {
+      $user = $_SESSION["loggedUser"];   
+      echo('<h1>Hola ' . $user["name"] . '</h1>');
+    }
+    ?>
 </body>
 </html>
