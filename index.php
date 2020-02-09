@@ -29,7 +29,7 @@
           if (isset($_SESSION["loggedUser"])) {   
             $user = $_SESSION["loggedUser"];
             if ($user["role"] == "admin"){
-              echo('<li class="nav-item"><a class="nav-link" href="#">Agregar película</a></li>');
+              echo('<li class="nav-item"><a class="nav-link" href="addMoviePage.php">Agregar película</a></li>');
               echo('<li class="nav-item"><a class="nav-link" href="#">Aprobar comentarios</a></li>');
             }
           }
