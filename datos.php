@@ -12,7 +12,7 @@
 
 <?php
 
- function getPelicula() {
+function getPeliculas() {
     $pelicula = array(
         array("id" => 1, "titulo" => "No te metas con Zohan","id_genero"=>"1",
             "fecha_lanzamiento"=>"05/12/2020",
@@ -23,7 +23,22 @@
             "fecha_lanzamiento"=>"07/12/2020",
             "resumen"=>"Pelicula de dibujitos de autos re piolas",
             "director"=>"Federico",
+            "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY"),
+        array("id" => 3, "titulo" => "Scary movie","id_genero"=>"3",
+            "fecha_lanzamiento"=>"07/12/2020",
+            "resumen"=>"Da mucho miedo",
+            "director"=>"Javier",
             "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY")
     );
     return $pelicula;
+}
+
+function getPeliculaPorId($id){
+    foreach (getPeliculas() as $pelicula){
+        if($pelicula["id"]== $id) {
+            return $pelicula;
+        }
+    }
+    
+    return NULL;
 }

@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <style>
+    .bs-example{
+        margin: 20px;        
+    }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,20 +57,64 @@
     <p> </p>
     <!--De cada película se debe presentar el póster (una imagen asociada),
     el título, el género al que pertenece y su puntuación si es que tiene-->
-    <?php
-            foreach (getPelicula() as $pelicula) {
-                echo('<li>');
-                echo('<div class="card mb-3 w-75 mx-auto">
+    
+   <div class="bs-example">
+    <div class="container">
+        <!--<div class="row">-->
+            <div class="card-deck">
+                <?php
+            foreach (getPeliculas() as $pelicula) {
+                echo('<div class="card" style="width:100">
                       <div w-75 mx-auto>
-                      <img id="1" src="4838218.jpg" class="card-img-top w-25 mx-auto">
+                      <img id="1" src="4838218.jpg" class="card-img-top">
                       </div>
                       <div class="card-body">');
                 echo('<h5 class="card-title">'.$pelicula["titulo"].'</h5>');
                 echo('<p class="card-text">'.$pelicula["id_genero"].'</p>');//Cambiarlo
-                echo('<p class="card-text"><b>Director:</b>5/5</p>');//Cambiarlo
-                echo('<a href="pelicula.php" type="button"> Mas informacion </a>');
-                echo('</li>');
+                echo('<p class="card-text"><b>Puntuacion:</b>5/5</p>');//Cambiarlo
+                echo('<a href="pelicula.php?id='.$pelicula["id"].'" type="button"> Mas informacion </a>');
+                echo ('</div>');
+                echo ('</div>');
             }
-    ?>
+            ?>
+                
+               <!--<div class="card">
+                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Vestibulum id metus ac nisl bibendum nibh scelerisque non purus in suspendisse.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Pulvinar leo id risus enim. Bibendum varius tincidunt pellentesque malesuada in.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+               -->
+        </div>
+    </div>
+</div>
+
+    
+    
 </body>
 </html>

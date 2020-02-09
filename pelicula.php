@@ -60,8 +60,15 @@
           <button id="1.boton" type="button" class="btn btn-outline-danger mx-auto" onclick="mostrarVideo()">Ver video</button>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
           <?php
-            foreach (getPelicula() as $pelicula) {
-                echo('<li>');
+           
+              $peliId = 1;
+              if(isset($_GET["id"])) {
+                  $peliId = $_GET["id"];
+              }
+
+              $pelicula = getPeliculaPorId($peliId);
+
+              if (isset($pelicula)){
                 echo('<div class="card mb-3 w-75 mx-auto">
                       <div w-75 mx-auto>
                       <iframe id="1.video" style="visibility:hidden" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
@@ -71,8 +78,10 @@
                 echo('<h5 class="card-title">'.$pelicula["titulo"].'</h5>');
                 echo('<p class="card-text">'.$pelicula["resumen"].'</p>');
                 echo('<p class="card-text"><b>Director:</b>'.$pelicula["director"].'</p>');
-                echo('</li>');
-            }
+              } else {
+                  echo("<h1>No existe dicha película</h1>");
+              }
+              
            ?>
         </div>
       </div>
