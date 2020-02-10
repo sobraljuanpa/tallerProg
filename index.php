@@ -31,7 +31,7 @@
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Agregar comentario</a>
+          <a class="nav-link" href="agregarComentario.php">Agregar comentario</a>
         </li>
         <?php
           session_start();
