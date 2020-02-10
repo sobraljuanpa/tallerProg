@@ -9,38 +9,38 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <script>  
-    function checkPasswords(form) {
+      function checkPasswords(form) {
 
-      password1 = form.password1.value; 
-      password2 = form.password2.value; 
+        password1 = form.password1.value; 
+        password2 = form.password2.value; 
 
-      // Check if any password is empty 
-      if (password1 == '' || password2 == ''){
-          alert ("Las contraseñas no pueden ser diferentes");
+        // Check if any password is empty 
+        if (password1 == '' || password2 == ''){
+            alert ("Las contraseñas no pueden estar vacias");
+            return false;
+        } 
+              
+        // Check if passwords match
+        else if (password1 != password2){
+          alert ("Las contraseñas ingresadas no son iguales"); 
           return false;
-      } 
-            
-      // Check if passwords match
-      else if (password1 != password2){
-        alert ("Las contraseñas ingresadas no son iguales"); 
-        return false;
-      } 
+        } 
 
-      // Check if password length is valid 
-      else if (password1.length < 6){ 
-          alert("Por favor ingrese una contraseña de al menos seis caracteres") 
-          return false; 
-      }
+        // Check if password length is valid 
+        else if (password1.length < 6){ 
+            alert("Por favor ingrese una contraseña de al menos seis caracteres") 
+            return false; 
+        }
 
-      return true;
-    } 
-  </script>
+        return true;
+      } 
+    </script>
 </head>
 <body>
   <div class="container">
     <div class="card text-white bg-secondary">
       <div class="card-body">
-        <form onSubmit="return checkPasswords(this)"action="doRegister.php" method="POST">
+        <form onSubmit="return checkPasswords(this)" action="doRegister.php" method="POST">
           <div class="form-group">
             <label>Email</label>
             <input name="email" type="email" class="form-control" placeholder="ejemplo@ejemplo.ej">
