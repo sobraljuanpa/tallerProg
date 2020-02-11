@@ -62,62 +62,26 @@
       echo('<h1>Hola ' . $user["name"] . '</h1>');
     }
   ?>
-    <p> </p>
-    <!--De cada película se debe presentar el póster (una imagen asociada),
-    el título, el género al que pertenece y su puntuación si es que tiene-->
     
    <div class="bs-example">
     <div class="container">
-        <!--<div class="row">-->
             <div class="card-deck">
                 <?php
-            foreach (getPeliculas() as $pelicula) {
-                echo('<div class="card" style="width:100">
-                      <div w-75 mx-auto>
-                      <img id="1" src="4838218.jpg" class="card-img-top">
-                      </div>
-                      <div class="card-body">');
-                echo('<h5 class="card-title">'.$pelicula["titulo"].'</h5>');
-                echo('<p class="card-text">'.$pelicula["id_genero"].'</p>');//Cambiarlo
-                echo('<p class="card-text"><b>Puntuacion:</b>5/5</p>');//Cambiarlo
-                echo('<a href="pelicula.php?id='.$pelicula["id"].'" type="button"> Mas informacion </a>');
-                echo ('</div>');
-                echo ('</div>');
+            foreach (getComentarios() as $comentario) {
+                echo('<div class="card bg-dark text-white">
+                          <div class="card-body">'
+                              .$comentario["mensaje"].
+                              '<a href="">
+                                  <button type="button" class="btn btn-danger" style="margin-left: 10px; float:right">Rechazar</button>
+                              </a>
+                              <a href="">
+                                  <button type="button" class="btn btn-primary" style="margin-left: 10px; float:right">Aprobar</button>
+                              </a>
+                          </div>
+                      </div>');
+                echo ('</br>');
             }
             ?>
-                
-               <!--<div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Vestibulum id metus ac nisl bibendum nibh scelerisque non purus in suspendisse.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Pulvinar leo id risus enim. Bibendum varius tincidunt pellentesque malesuada in.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-               -->
         </div>
     </div>
 </div>

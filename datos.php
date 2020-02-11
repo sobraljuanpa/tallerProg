@@ -8,9 +8,55 @@
   `youtube_trailer` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) 
+CREATE TABLE IF NOT EXISTS `comentarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pelicula` int(11) NOT NULL,
+  `mensaje` varchar(255) NOT NULL,
+  `puntuacion` float(18,2) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `estado` varchar(50) NOT NULL DEFAULT 'PENDIENTE',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+INSERT INTO `comentarios` (`id`, `id_pelicula`, `mensaje`, `puntuacion`, `id_usuario`, `estado`) VALUES
+(1, 1, 'La peor terminator de toda la saga', 2.00, 2, 'PENDIENTE'),
+(2, 2, 'Muy entretenida, perfecta para niños en vacaciones', 5.00, 2, 'APROBADO'),
+(3, 3, 'No la vi, pero me dijeron que es muy buena', 4.00, 2, 'RECHAZADO');
 -->
-
 <?php
+
+function getComentarios() {
+    $comentarios = array(
+        array(
+            "id" => 1,
+            "id_pelicula" => 1,
+            "mensaje" => 'La peor terminator de toda la saga',
+            "puntuacion" => 2.00,
+            "id_usuario" => 2,
+            "estado" => 'PENDIENTE'
+        ),
+        array(
+            "id" => 2,
+            "id_pelicula" => 2,
+            "mensaje" => 'Muy entretenida, perfecta para niños en vacaciones',
+            "puntuacion" => 5.00,
+            "id_usuario" => 2,
+            "estado" => 'APROBADO'
+        ),
+        array(
+            "id" => 3,
+            "id_pelicula" => 3,
+            "mensaje" => 'No la vi, pero me dijeron que es muy buena',
+            "puntuacion" => 4.00,
+            "id_usuario" => 2,
+            "estado" => 'RECHAZADO'
+        )
+    );
+
+    return $comentarios;
+}
 
 function getPeliculas() {
     $pelicula = array(
