@@ -20,7 +20,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Guia de cine</a>
+    <a class="navbar-brand" href="index.php">Guia de cine</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="agregarComentario.php">Agregar comentario</a>
@@ -46,7 +46,6 @@
       </ul>
     </div>
     <?php
-      session_start();
       if (isset($_SESSION["loggedUser"])) {   
         echo('<a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>');
       } else {
@@ -56,7 +55,6 @@
     ?>
   </nav>
   <?php
-    session_start();
     if (isset($_SESSION["loggedUser"])) {
       $user = $_SESSION["loggedUser"];   
       echo('<h1>Hola ' . $user["name"] . '</h1>');
