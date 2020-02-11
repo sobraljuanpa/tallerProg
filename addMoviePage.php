@@ -9,38 +9,47 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <script>  
-    function checkPasswords(form) {
+      function checkFields(form) {
 
-      password1 = form.password1.value; 
-      password2 = form.password2.value; 
+        title = form.title.value;  
+        if (title == ''){
+            alert ("Debe ingresar un título");
+            return false;
+        } 
 
-      // Check if any password is empty 
-      if (password1 == '' || password2 == ''){
-          alert ("Las contraseñas no pueden ser diferentes");
+        genero = form.genre.value;
+        else if (genre == ''){
+          alert ("Debe seleccionar un género"); 
           return false;
-      } 
-            
-      // Check if passwords match
-      else if (password1 != password2){
-        alert ("Las contraseñas ingresadas no son iguales"); 
-        return false;
-      } 
+        } 
 
-      // Check if password length is valid 
-      else if (password1.length < 6){ 
-          alert("Por favor ingrese una contraseña de al menos seis caracteres") 
-          return false; 
-      }
+        directorName = form.directorName.value;
+        else if (directorName == ''){
+          alert ("Debe ingresar un director"); 
+          return false;
+        }
 
-      return true;
-    } 
-  </script>
+        fechaLanzamiento = form.date.value;
+        else if (fechaLanzamiento == ''){
+          alert ("Debe ingresar una fecha de lanzamiento"); 
+          return false;
+        }
+
+        actors = form.actors.value;
+        else if (actors == ''){
+          alert ("Debe ingresar al menos un actor principal"); 
+          return false;
+        }
+        
+        return true;
+      } 
+    </script>
 </head>
 <body>
   <div class="container">
     <div class="card text-white bg-secondary">
       <div class="card-body">
-        <form onSubmit="return checkFields(this)"action="doRegisterMovie.php" method="POST">
+        <form onSubmit="return checkFields(this)" action="doRegisterMovie.php" method="POST">
           <div class="form-group">
             <label>Título</label>
             <input name="title" type="text" class="form-control" placeholder="Bastardos sin gloria">
