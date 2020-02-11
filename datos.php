@@ -1,31 +1,6 @@
-<!--CREATE TABLE IF NOT EXISTS `peliculas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(255) NOT NULL,
-  `id_genero` int(11) NOT NULL,
-  `fecha_lanzamiento` date NOT NULL,
-  `resumen` varchar(500) NOT NULL,
-  `director` varchar(255) NOT NULL,
-  `youtube_trailer` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) 
-CREATE TABLE IF NOT EXISTS `comentarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pelicula` int(11) NOT NULL,
-  `mensaje` varchar(255) NOT NULL,
-  `puntuacion` float(18,2) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `estado` varchar(50) NOT NULL DEFAULT 'PENDIENTE',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
---
--- Volcado de datos para la tabla `comentarios`
---
-INSERT INTO `comentarios` (`id`, `id_pelicula`, `mensaje`, `puntuacion`, `id_usuario`, `estado`) VALUES
-(1, 1, 'La peor terminator de toda la saga', 2.00, 2, 'PENDIENTE'),
-(2, 2, 'Muy entretenida, perfecta para niños en vacaciones', 5.00, 2, 'APROBADO'),
-(3, 3, 'No la vi, pero me dijeron que es muy buena', 4.00, 2, 'RECHAZADO');
--->
 <?php
+
+require_once 'libs/Smarty.class.php';
 
 function getComentarios() {
     $comentarios = array(
@@ -88,3 +63,40 @@ function getPeliculaPorId($id){
     
     return NULL;
 }
+
+function getSmarty() {
+    $mySmarty = new Smarty();
+    $mySmarty->template_dir = 'templates';
+    $mySmarty->compile_dir = 'templates_c';
+    $mySmarty->config_dir = 'config';
+    $mySmarty->cache_dir = 'cache';
+    return $mySmarty;
+}
+
+// <!--CREATE TABLE IF NOT EXISTS `peliculas` (
+//     `id` int(11) NOT NULL AUTO_INCREMENT,
+//     `titulo` varchar(255) NOT NULL,
+//     `id_genero` int(11) NOT NULL,
+//     `fecha_lanzamiento` date NOT NULL,
+//     `resumen` varchar(500) NOT NULL,
+//     `director` varchar(255) NOT NULL,
+//     `youtube_trailer` varchar(255) NOT NULL,
+//     PRIMARY KEY (`id`)
+//   ) 
+//   CREATE TABLE IF NOT EXISTS `comentarios` (
+//     `id` int(11) NOT NULL AUTO_INCREMENT,
+//     `id_pelicula` int(11) NOT NULL,
+//     `mensaje` varchar(255) NOT NULL,
+//     `puntuacion` float(18,2) NOT NULL,
+//     `id_usuario` int(11) NOT NULL,
+//     `estado` varchar(50) NOT NULL DEFAULT 'PENDIENTE',
+//     PRIMARY KEY (`id`)
+//   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+//   --
+//   -- Volcado de datos para la tabla `comentarios`
+//   --
+//   INSERT INTO `comentarios` (`id`, `id_pelicula`, `mensaje`, `puntuacion`, `id_usuario`, `estado`) VALUES
+//   (1, 1, 'La peor terminator de toda la saga', 2.00, 2, 'PENDIENTE'),
+//   (2, 2, 'Muy entretenida, perfecta para niños en vacaciones', 5.00, 2, 'APROBADO'),
+//   (3, 3, 'No la vi, pero me dijeron que es muy buena', 4.00, 2, 'RECHAZADO');
+//   -->

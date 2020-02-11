@@ -1,5 +1,14 @@
 # tallerProg
 
+## IMPORTANTE SMARTY
+
+Es importante tener permisos para mostrar lso templates de smarty.
+Se puede hacer de 2 maneras
+
++ Logueado a la consola y en el dir de la pag meter un chmod 777 a cache, config, templates y templates_c
++ Meter el scp con -rp que la p preserva los permisos locales, setearlos como arriba y darle
+
+
 ## Colores
 
 + Navbar: Dark

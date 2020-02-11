@@ -60,6 +60,7 @@
       echo('<h1>Hola ' . $user["name"] . '</h1>');
     }
   ?>
+  <a href="pruebaSmarty.php">Prueba SMARTY</a>
     <p> </p>
     <!--De cada película se debe presentar el póster (una imagen asociada),
     el título, el género al que pertenece y su puntuación si es que tiene-->
