@@ -68,7 +68,8 @@
             <div class="card-deck">
                 <?php
             foreach (getComentarios() as $comentario) {
-                echo('<div class="card bg-dark text-white">
+                if($comentario["estado"]=="PENDIENTE"){
+                  echo('<div class="card bg-dark text-white">
                           <div class="card-body">'
                               .$comentario["mensaje"].
                               '<a href="">
@@ -78,8 +79,9 @@
                                   <button type="button" class="btn btn-primary" style="margin-left: 10px; float:right">Aprobar</button>
                               </a>
                           </div>
-                      </div>');
-                echo ('</br>');
+                        </div>');
+                  echo ('<br>');
+                }
             }
             ?>
         </div>
