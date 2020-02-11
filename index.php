@@ -46,7 +46,6 @@
       </ul>
     </div>
     <?php
-      session_start();
       if (isset($_SESSION["loggedUser"])) {   
         echo('<a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>');
       } else {
@@ -56,7 +55,6 @@
     ?>
   </nav>
   <?php
-    session_start();
     if (isset($_SESSION["loggedUser"])) {
       $user = $_SESSION["loggedUser"];   
       echo('<h1>Hola ' . $user["name"] . '</h1>');
@@ -85,39 +83,6 @@
                 echo ('</div>');
             }
             ?>
-                
-               <!--<div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Vestibulum id metus ac nisl bibendum nibh scelerisque non purus in suspendisse.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/examples/images/thumbnail.svg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Pulvinar leo id risus enim. Bibendum varius tincidunt pellentesque malesuada in.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-               -->
         </div>
     </div>
 </div>

@@ -46,7 +46,6 @@
       </ul>
     </div>
     <?php
-      session_start();
       if (isset($_SESSION["loggedUser"])) {   
         echo('<a href="doLogout.php"><button type="button" class="btn btn-danger" style="margin-left: 10px;">Log out</button></a>');
       } else {
@@ -56,7 +55,6 @@
     ?>
   </nav>
   <?php
-    session_start();
     if (isset($_SESSION["loggedUser"])) {
       $user = $_SESSION["loggedUser"];   
       echo('<h1>Hola ' . $user["name"] . '</h1>');
