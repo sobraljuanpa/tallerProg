@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php 
-    require_once 'datos.php';
-    ini_set('display_errors', 1);
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
