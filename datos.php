@@ -2,6 +2,15 @@
 
 require_once 'libs/Smarty.class.php';
 
+function getConexion() {
+    $usuario = "root";
+    $clave = "root";
+
+    $cn = new PDO(
+            'mysql:host=localhost;dbname=BDPI', $usuario, $clave);
+    return $cn;
+}
+
 function getComentarios() {
     $comentarios = array(
         array(
@@ -33,25 +42,34 @@ function getComentarios() {
     return $comentarios;
 }
 
+// function getPeliculas() {
+//     $pelicula = array(
+//         array("id" => 1, "titulo" => "No te metas con Zohan","id_genero"=>"1",
+//             "fecha_lanzamiento"=>"05/12/2020",
+//             "resumen"=>"Pelicula muy divertida de accion y comedia",
+//             "director"=>"Juan Pablo",
+//             "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY"),
+//         array("id" => 2, "titulo" => "Cars","id_genero"=>"2",
+//             "fecha_lanzamiento"=>"07/12/2020",
+//             "resumen"=>"Pelicula de dibujitos de autos re piolas",
+//             "director"=>"Federico",
+//             "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY"),
+//         array("id" => 3, "titulo" => "Scary movie","id_genero"=>"3",
+//             "fecha_lanzamiento"=>"07/12/2020",
+//             "resumen"=>"Da mucho miedo",
+//             "director"=>"Javier",
+//             "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY")
+//     );
+//     return $pelicula;
+// }
+
 function getPeliculas() {
-    $pelicula = array(
-        array("id" => 1, "titulo" => "No te metas con Zohan","id_genero"=>"1",
-            "fecha_lanzamiento"=>"05/12/2020",
-            "resumen"=>"Pelicula muy divertida de accion y comedia",
-            "director"=>"Juan Pablo",
-            "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY"),
-        array("id" => 2, "titulo" => "Cars","id_genero"=>"2",
-            "fecha_lanzamiento"=>"07/12/2020",
-            "resumen"=>"Pelicula de dibujitos de autos re piolas",
-            "director"=>"Federico",
-            "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY"),
-        array("id" => 3, "titulo" => "Scary movie","id_genero"=>"3",
-            "fecha_lanzamiento"=>"07/12/2020",
-            "resumen"=>"Da mucho miedo",
-            "director"=>"Javier",
-            "youtube_trailer"=>"https://www.youtube.com/embed/tgbNymZ7vqY")
-    );
-    return $pelicula;
+    $cn = getConexion();
+
+    $sql = "SELECT * FROM peliculas ORDER BY titulo";
+    $resultado = $cn->query($sql);
+    $peliculas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+    return $peliculas;
 }
 
 function getPeliculaPorId($id){
