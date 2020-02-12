@@ -1,6 +1,6 @@
 <?php
 
-require_once "datos.php";
+require_once 'datos.php';
 ini_set('display_errors', 1);
 
 $mySmarty = getSmarty();
@@ -11,6 +11,6 @@ if (isset($_SESSION["loggedUser"])) {
     $mySmarty->assign("user", $user);
 }
 
-$mySmarty->assign("comments", getComentarios());
+$mySmarty->assign("title", "JUan PAblo");
 
-$mySmarty->display('approveComments.tpl');
+$mySmarty->display("pruebaSmarty.tpl");
