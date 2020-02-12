@@ -65,7 +65,7 @@ function getPeliculaPorId($id){
 }
 
 function getSmarty() {
-    $mySmarty = new Smarty();
+    $mySmarty = new SmartyBC();
     $mySmarty->template_dir = 'templates';
     $mySmarty->compile_dir = 'templates_c';
     $mySmarty->config_dir = 'config';
