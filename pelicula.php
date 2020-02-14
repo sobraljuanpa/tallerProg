@@ -10,6 +10,13 @@
       $mySmarty->assign("user", $user);
   }
 
-  $mySmarty->assign("peliculas",getPeliculas());
-  $mySmarty->display('index.tpl');
+  $peliId = 1;
+  if(isset($_GET["id"])) {
+      $peliId = $_GET["id"];
+      $pelicula = getPeliculaPorId($peliId);
+      $mySmarty->assign("pelicula",$pelicula);
+  }
 
+ 
+
+  $mySmarty->display('movieDetail.tpl');
