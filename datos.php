@@ -11,7 +11,7 @@ function abrirConexion() {
 }
 
 function login($mail, $password) {
-    cn = abrirConexion();
+    $cn = abrirConexion();
     $cn->consulta('SELECT * FROM usuarios WHERE email = :email', array(
         array("email", $mail, 'string')
     ));
@@ -26,7 +26,7 @@ function login($mail, $password) {
         }
     }
 
-    return false;
+    return NULL;
 }
 
 function getComentarios() {
@@ -82,12 +82,9 @@ function getComentarios() {
 // }
 
 function getPeliculas() {
-    $cn = getConexion();
-
-    $sql = "SELECT * FROM peliculas ORDER BY titulo";
-    $resultado = $cn->query($sql);
-    $peliculas = $resultado->fetchAll(PDO::FETCH_ASSOC);
-    return $peliculas;
+    $cn = abrirConexion();
+    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    return $cn->restantesRegistros();
 }
 
 function getPeliculaPorId($id){
