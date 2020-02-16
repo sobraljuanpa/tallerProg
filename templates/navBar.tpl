@@ -13,7 +13,7 @@
           <a class="nav-link" href="agregarComentario.php">Agregar comentario</a>
         </li>
           {if (isset($user))}
-            {if $user["role"] == "admin"}
+            {if $user["es_admin"] == "1"}
               <li class="nav-item"><a class="nav-link" href="addMoviePage.php">Agregar película</a></li>
               <li class="nav-item"><a class="nav-link" href="approveComments.php">Aprobar comentarios</a></li>
             {/if}

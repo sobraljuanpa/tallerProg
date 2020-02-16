@@ -1,5 +1,15 @@
 # tallerProg
 
+***************************************************************************
+***************************************************************************
+*ACA ROMPI TODO PQ CUANDO HICE EL CAMBIO EN DATOS REVENTE TODO LO DE FEDE *
+*                                                                         *
+*IMPORTANTE                                                               *
+*                                                                         *
+*TENER EN CUENTA                                                          *
+***************************************************************************
+***************************************************************************
+
 ## IMPORTANTE SMARTY
 
 Es importante tener permisos para mostrar lso templates de smarty.
