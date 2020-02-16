@@ -60,6 +60,16 @@ function addMovie($title, $genre, $date, $resume, $director, $trailer) {
     ));
 }
 
+function addCast($actor) {
+    $cn = abrirConexion();
+    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    $indicePelicula = $cn->cantidadRegistros();
+    $cn->consulta('INSERT INTO elencos(id_pelicula, nombre) VALUES (:id_pelicula, :nombre)', array(
+        array("id_pelicula", $indicePelicula, 'int'),
+        array("nombre", $actor, 'string')
+    ));
+}
+
 function getComentarios() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM comentarios ORDER BY puntuacion');

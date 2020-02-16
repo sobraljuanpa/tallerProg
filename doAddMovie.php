@@ -11,4 +11,10 @@ $actors = $_POST["actors"];
 $trailer = $_POST["trailerLink"];
 
 addMovie($title, $genre, $resume, $director, $date, $trailer);
+
+$actors = explode(", ", $actors);
+foreach ($actors as $actor) {
+    addCast($actor);
+}
+
 header('location:index.php');
