@@ -29,6 +29,25 @@ function login($mail, $password) {
     return NULL;
 }
 
+function mailAvailable($mail) {
+    $cn = abrirConexion();
+    $cn->consulta('SELECT * FROM usuarios WHERE email = :email', array(
+        array("email", $mail, 'string')
+    ));
+
+    return $cn->cantidadRegistros() == 0;
+}
+
+function createUser($mail, $alias, $password) {
+    $cn = abrirConexion();
+    $cn->consulta('INSERT INTO usuarios(email, alias, password, es_administrador) VALUES (:mail, :alias, :password, :es_admin)', array(
+        array("mail", $mail, 'string'),
+        array("alias", $alias, 'string'),
+        array("password", md5($password), 'string'),
+        array("es_admin", 0, 'int')
+    ));
+}
+
 function getComentarios() {
     $comentarios = array(
         array(
