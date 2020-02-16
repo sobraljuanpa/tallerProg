@@ -50,30 +50,34 @@
   <div class="container">
     <div class="card text-white bg-secondary">
       <div class="card-body">
-        <form onSubmit="return checkFields(this)" action="doRegisterMovie.php" method="POST">
+        <form onSubmit="return checkFields(this)" action="doAddMovie.php" method="POST">
           <div class="form-group">
             <label>Título</label>
             <input name="title" type="text" class="form-control" placeholder="Bastardos sin gloria">
           </div>
           <div class="form-group">
             <label>Género</label><br>
-            <input type="radio" name="genre" value="Acción"> Acción<br>
-            <input type="radio" name="genre" value="Aventuras"> Aventuras<br>
-            <input type="radio" name="genre" value="Comedia"> Comedia<br>
-            <input type="radio" name="genre" value="Drama"> Drama<br>
-            <input type="radio" name="genre" value="Musicales"> Musicales<br>
-            <input type="radio" name="genre" value="Terror"> Terror<br>
-            <input type="radio" name="genre" value="Aventuras"> Ciencia Ficción<br>
-            <input type="radio" name="genre" value="Comedia"> Suspenso<br>
-            <input type="radio" name="genre" value="Drama"> Infantiles<br>
+            <input type="radio" name="genre" value="1"> Acción<br>
+            <input type="radio" name="genre" value="2"> Aventuras<br>
+            <input type="radio" name="genre" value="3"> Comedia<br>
+            <input type="radio" name="genre" value="4"> Drama<br>
+            <input type="radio" name="genre" value="5"> Musicales<br>
+            <input type="radio" name="genre" value="6"> Terror<br>
+            <input type="radio" name="genre" value="7"> Ciencia Ficción<br>
+            <input type="radio" name="genre" value="8"> Suspenso<br>
+            <input type="radio" name="genre" value="9"> Infantiles<br>
           </div>
-          <div class="form-group">
+          {* <div class="form-group">
             <label>Link al poster</label>
             <input name="posterLink" type="text" class="form-control" placeholder="https://a.b">
-          </div>
+          </div> *}
           <div class="form-group">
             <label>Nombre del director</label>
             <input name="directorName" type="text" class="form-control" placeholder="Quentin Tarantino">
+          </div>
+          <div class="form-group">
+            <label>Resumen</label>
+            <input name="resume" type="text" class="form-control" placeholder="Cuenta la historia de un grupo de soldados estadounidenses....">
           </div>
           <div class="form-group">
             <label>Fecha de lanzamiento</label>

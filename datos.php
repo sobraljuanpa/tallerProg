@@ -48,35 +48,22 @@ function createUser($mail, $alias, $password) {
     ));
 }
 
-function getComentarios() {
-    $comentarios = array(
-        array(
-            "id" => 1,
-            "id_pelicula" => 1,
-            "mensaje" => 'La peor terminator de toda la saga',
-            "puntuacion" => 2.00,
-            "id_usuario" => 2,
-            "estado" => 'PENDIENTE'
-        ),
-        array(
-            "id" => 2,
-            "id_pelicula" => 2,
-            "mensaje" => 'Muy entretenida, perfecta para niños en vacaciones',
-            "puntuacion" => 5.00,
-            "id_usuario" => 2,
-            "estado" => 'APROBADO'
-        ),
-        array(
-            "id" => 3,
-            "id_pelicula" => 3,
-            "mensaje" => 'No la vi, pero me dijeron que es muy buena',
-            "puntuacion" => 4.00,
-            "id_usuario" => 2,
-            "estado" => 'RECHAZADO'
-        )
-    );
+function addMovie($title, $genre, $date, $resume, $director, $trailer) {
+    $cn = abrirConexion();
+    $cn->consulta('INSERT INTO peliculas(titulo, id_genero, fecha_lanzamiento, resumen, director, youtube_trailer) VALUES (:title, :genre, :date, :resume, :director, :trailer)', array(
+        array("title", $title, 'string'),
+        array("genre", $genre, 'int'),
+        array("date", $date, 'string'),
+        array("resume", $resume, 'string'),
+        array("director", $director, 'string'),
+        array("trailer", $trailer, 'string')
+    ));
+}
 
-    return $comentarios;
+function getComentarios() {
+    $cn = abrirConexion();
+    $cn->consulta('SELECT * FROM comentarios ORDER BY puntuacion');
+    return $cn->restantesRegistros();
 }
 
 function getPeliculas() {
