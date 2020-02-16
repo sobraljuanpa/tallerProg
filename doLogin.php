@@ -1,15 +1,6 @@
 <?php
 
-function login($email, $password) {
-    if($email == "admin@admin.admin" && $password== "admin"){
-        return array(
-            "role" => "admin",
-            "name" => "Test Admin User"
-        );
-    }
-    
-    return NULL;
-}
+require_once 'datos.php';
 
 $email = $_POST["email"];
 $password = $_POST["password"];

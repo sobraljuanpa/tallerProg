@@ -1,14 +1,32 @@
 <?php
 
 require_once 'libs/Smarty.class.php';
+require_once 'class.Conexion.BD.php';
 
-function getConexion() {
-    $usuario = "root";
-    $clave = "root";
 
-    $cn = new PDO(
-            'mysql:host=localhost;dbname=BDPI', $usuario, $clave);
+function abrirConexion() {
+    $cn = new ConexionBD("mysql", "localhost", "BDPI", "root", "root");
+    $cn->conectar();
     return $cn;
+}
+
+function login($mail, $password) {
+    cn = abrirConexion();
+    $cn->consulta('SELECT * FROM usuarios WHERE email = :email', array(
+        array("email", $mail, 'string')
+    ));
+
+    $filas = $cn->restantesRegistros();
+    foreach ($filas as $fila) {
+        if(md5($password) == $fila["password"]) {
+            return array(
+                "role" => $fila["es_administrador"],
+                "alias" => $fila["alias"]
+            );
+        }
+    }
+
+    return false;
 }
 
 function getComentarios() {
