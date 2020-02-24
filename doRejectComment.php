@@ -6,7 +6,6 @@
       $comment = getCommentById($commentId);
       
       rejectComment($commentId);
-      //refreshScore($comment["id_pelicula"]);
   }
 
   header('location:index.php');
