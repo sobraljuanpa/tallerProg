@@ -20,6 +20,7 @@ function login($mail, $password) {
     foreach ($filas as $fila) {
         if(md5($password) == $fila["password"]) {
             return array(
+                "id" => $fila["id"],
                 "es_admin" => $fila["es_administrador"],
                 "alias" => $fila["alias"]
             );
