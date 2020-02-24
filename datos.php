@@ -77,6 +77,42 @@ function getComentarios() {
     return $cn->restantesRegistros();
 }
 
+function getCommentById($id) {
+    foreach (getComentarios() as $comentario){
+        if($comentario["id"]== $id) {
+            return $comentario;
+        }
+    }
+    
+    return NULL;
+}
+
+function approveComment($id) {
+    $cn = abrirConexion();
+    $cn->consulta('UPDATE comentarios SET estado = "APROBADO" WHERE id = :id', array(
+        array("id", $id, 'int')
+    ));
+}
+
+function rejectComment($id) {
+    $cn = abrirConexion();
+    $cn->consulta('UPDATE comentarios SET estado = "RECHAZADO" WHERE id = :id', array(
+        array("id", $id, 'int')
+    ));
+}
+
+function getMovieRatings($movieId) {
+    $ratings = array();
+
+    foreach (getComentarios() as $comentario){
+        if($comentario["id_pelicula"] == $movieId) {
+            $ratings[] = $comentario["puntuacion"];
+        }
+    }
+    
+    return $ratings;
+}
+
 function getPeliculas() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');

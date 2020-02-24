@@ -9,9 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <style>
-    .bs-example{
-        margin: 20px;        
-    }
+        .bs-example{
+            margin: 20px;        
+        }
     </style>
 </head>
 <body>
@@ -24,10 +24,10 @@
                     <div class="card bg-dark text-white">
                         <div class="card-body">
                             {$comentario.mensaje}
-                            <a href="">
+                            <a href="doApproveComment.php?id={$comentario.id}">
                                 <button type="button" class="btn btn-danger" style="margin-left: 10px; float:right">Rechazar</button>
                             </a>
-                            <a href="">
+                            <a href="doRejectComment.php?id={$comentario.id}">
                                 <button type="button" class="btn btn-primary" style="margin-left: 10px; float:right">Aprobar</button>
                             </a>
                         </div>
