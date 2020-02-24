@@ -71,14 +71,21 @@ function addCast($actor) {
     ));
 }
 
-function addComment($id_movie, $comment, $stars, $id_user){
+function addComment($id_movie, $comment, $stars, $id_user, $state){
+    console_log($id_movie);
+    console_log($stars);
+    console_log($comment);
+    console_log($id_user);
+    console_log($state);
     $cn = abrirConexion();
-    $cn->consulta('INSERT INTO comentarios(id_pelicula, mensaje, puntacion, id_usuario) VALUES (:id_movie, :comment, :stars, :id_user)', array(
+    $cn->consulta('INSERT INTO comentarios(id_pelicula, mensaje, puntuacion, id_usuario, estado) VALUES (:id_movie, :comment, :stars, :id_user, :state)', array(
         array("id_movie", $id_movie, 'int'),
         array("comment", $comment, 'string'),
-        array("stars", $stars, 'int'),
+        array("stars", $stars, 'float'),
         array("id_user", $id_user, 'int'),
+        array("state", $state, 'string')
     ));
+    console_log($cn->ultimoError);
 }
 
 function getComentarios() {
@@ -111,3 +118,9 @@ function getSmarty() {
     $mySmarty->cache_dir = 'cache';
     return $mySmarty;
 }
+
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+  }

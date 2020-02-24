@@ -12,7 +12,3 @@ if (isset($_SESSION["loggedUser"])) {
 }
 
 $mySmarty->display('addComment.tpl');
-
-if(isset($_GET["err"])) {
-  echo("<label>Por favor llene todos los campos.</label>");
-}

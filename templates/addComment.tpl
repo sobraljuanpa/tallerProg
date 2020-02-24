@@ -17,14 +17,13 @@
     <script>  
       function checkFields(form) {
 
-        coment = form.coment.value;  
-        if (coment == ''){
+        comment = form.comment.value; 
+        if (comment == ''){
             alert ("Debe ingresar una descripción");
             return false;
         } 
 
         return true;
-        //FALTA VERIFICAR QUE EL USUARIO COMMENTE UNA SOLA VEZ LA PELI
       } 
     </script>
 </head>
@@ -40,24 +39,25 @@
             <select class="custom-select d-block w-100" name="movie" required>
                 <option value="">Seleccione una película</option>
                 {foreach from=$peliculas item=pelicula}
-                    <option value="{$pelicula.id}">{$pelicula.titulo}</option>
+                    <option value="{$pelicula.id}">{$pelicula.id}</option>
                 {/foreach}
             </select>
           </div>
           <div class="form-group">
             <label>Cantidad de estrellas</label>
             <select class="custom-select d-block w-100" name="stars" required>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="1.0">1.00</option>
+                <option value="2.0">2.00</option>
+                <option value="3.0">3.00</option>
+                <option value="4.0">4.00</option>
+                <option value="5.0">5.00</option>
             </select>
           </div>
           <div class="form-group">
             <label>Comentario</label>
-            <input name="coment" type="text" class="form-control" placeholder="Muy buena pelicula">
+            <input name="comment" type="text" class="form-control" placeholder="Muy buena pelicula">
           </div>
+          <input name="user" value="{$user.id}" style="visibility:hidden">
           <button type="submit" class="btn btn-primary">Dar de alta</button>
         </form>
         <br>
