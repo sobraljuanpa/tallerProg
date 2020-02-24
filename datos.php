@@ -71,6 +71,16 @@ function addCast($actor) {
     ));
 }
 
+function addComment($id_movie, $comment, $stars, $id_user){
+    $cn = abrirConexion();
+    $cn->consulta('INSERT INTO comentarios(id_pelicula, mensaje, puntacion, id_usuario) VALUES (:id_movie, :comment, :stars, :id_user)', array(
+        array("id_movie", $id_movie, 'int'),
+        array("comment", $comment, 'string'),
+        array("stars", $stars, 'int'),
+        array("id_user", $id_user, 'int'),
+    ));
+}
+
 function getComentarios() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM comentarios ORDER BY puntuacion');
