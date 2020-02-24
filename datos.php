@@ -110,7 +110,7 @@ function getMovieRatings($movieId) {
         }
     }
     
-    return $ratings;
+    return array_sum($ratings)/count($ratings);
 }
 
 function getPeliculas() {
