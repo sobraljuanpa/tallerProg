@@ -72,11 +72,6 @@ function addCast($actor) {
 }
 
 function addComment($id_movie, $comment, $stars, $id_user, $state){
-    console_log($id_movie);
-    console_log($stars);
-    console_log($comment);
-    console_log($id_user);
-    console_log($state);
     $cn = abrirConexion();
     $cn->consulta('INSERT INTO comentarios(id_pelicula, mensaje, puntuacion, id_usuario, estado) VALUES (:id_movie, :comment, :stars, :id_user, :state)', array(
         array("id_movie", $id_movie, 'int'),
@@ -85,13 +80,37 @@ function addComment($id_movie, $comment, $stars, $id_user, $state){
         array("id_user", $id_user, 'int'),
         array("state", $state, 'string')
     ));
-    console_log($cn->ultimoError);
 }
 
 function getComentarios() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM comentarios ORDER BY puntuacion');
     return $cn->restantesRegistros();
+}
+
+
+function filterCommentsByUser($id){
+    $comments = getComentarios();
+    $filterComments = array();
+    foreach ($comments as $comment) {
+        if($comment["id_usuario"]==$id){
+            $filterComments[] = $comment["id_pelicula"];
+        }
+    }
+    return $filterComments;
+}
+
+
+function getMoviesNotCommented($id) {
+    $filterComments = filterCommentsByUser($id);
+    $peliculas = getPeliculas();
+    $items = array();
+    foreach($peliculas as $pelicula){
+        if(!in_array($pelicula["id"], $filterComments)){
+            $items[] = $pelicula;
+        }
+    }
+    return $items;
 }
 
 function getPeliculas() {
@@ -106,7 +125,7 @@ function getPeliculaPorId($id){
             return $pelicula;
         }
     }
-    
+
     return NULL;
 }
 

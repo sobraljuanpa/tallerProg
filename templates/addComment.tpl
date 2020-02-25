@@ -34,12 +34,13 @@
     <div class="card text-white bg-dark">
       <div class="card-body">
         <form onSubmit="return checkFields(this)"action="doAddComment.php" method="POST">
+          <input name="user" value="{$user.id}" style="visibility:hidden">
           <div class="form-group">
             <label>Película</label>
             <select class="custom-select d-block w-100" name="movie" required>
                 <option value="">Seleccione una película</option>
                 {foreach from=$peliculas item=pelicula}
-                    <option value="{$pelicula.id}">{$pelicula.id}</option>
+                    <option value="{$pelicula.id}">{$pelicula.titulo}</option>
                 {/foreach}
             </select>
           </div>
@@ -57,7 +58,6 @@
             <label>Comentario</label>
             <input name="comment" type="text" class="form-control" placeholder="Muy buena pelicula">
           </div>
-          <input name="user" value="{$user.id}" style="visibility:hidden">
           <button type="submit" class="btn btn-primary">Dar de alta</button>
         </form>
         <br>
