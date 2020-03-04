@@ -17,4 +17,12 @@ foreach ($actors as $actor) {
     addCast($actor);
 }
 
+if($_FILES['image']['name'])
+{
+  $movieId = getMovieId();
+  $imgExtension =  explode('.', $_FILES['image']['name'])[1];
+
+  move_uploaded_file($_FILES['image']['tmp_name'], "/var/www/tallerProg/img/$movieId.$imgExtension");
+}
+
 header('location:index.php');

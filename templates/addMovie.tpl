@@ -50,7 +50,7 @@
   <div class="container">
     <div class="card text-white bg-secondary">
       <div class="card-body">
-        <form onSubmit="return checkFields(this)" action="doAddMovie.php" method="POST">
+        <form onSubmit="return checkFields(this)" action="doAddMovie.php" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label>Título</label>
             <input name="title" type="text" class="form-control" placeholder="Bastardos sin gloria">
@@ -90,6 +90,10 @@
           <div class="form-group">
             <label>Link al trailer</label>
             <input name="trailerLink" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Poster de la pelicula</label>
+            <input type="file" name="image"/>
           </div>
           <button type="submit" class="btn btn-primary">Dar de alta</button>
         </form>
