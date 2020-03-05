@@ -89,6 +89,35 @@ function getComentarios() {
 }
 
 
+
+function starsByMovie($id){
+    $comments = getComentarios();
+    $filterComments = array();
+    $total=0;
+    $count=0;
+    foreach ($comments as $comment) {
+        if($comment["id_pelicula"]==$id){
+            $total += $comment["puntuacion"];
+            $count++;
+        }
+    }
+    if($total==0 || $count==0){
+        return 0;
+    }else{
+        return $total/$count;
+    }
+
+}
+
+function arrayOfStars(){
+    $movies = getPeliculas();
+    $array = array();
+    foreach ($movies as $movie) {
+        $array[$movie["id"]]= starsByMovie($movie["id"]);
+    }
+    return $array;
+}
+
 function filterCommentsByUser($id){
     $comments = getComentarios();
     $filterComments = array();
@@ -99,7 +128,6 @@ function filterCommentsByUser($id){
     }
     return $filterComments;
 }
-
 
 function getMoviesNotCommented($id) {
     $filterComments = filterCommentsByUser($id);

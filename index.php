@@ -11,5 +11,6 @@
   }
 
   $mySmarty->assign("peliculas",getPeliculas());
+  $mySmarty->assign("stars", arrayOfStars());
   $mySmarty->display('index.tpl');
 

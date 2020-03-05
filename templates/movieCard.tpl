@@ -6,7 +6,7 @@
     <div class="card-body">
         <h5 class="card-title">{$pelicula.titulo}</h5>
         <p class="card-text">{$pelicula.id_genero}</p>
-        <p class="card-text"><b>Puntuacion:</b>5/5</p>
+        <p class="card-text"><b>Puntuacion:</b> {$stars[$pelicula.id]}</p>
         <a href="pelicula.php?id={$pelicula.id}" type="button"> Mas informacion </a>
     </div>
 </div>
