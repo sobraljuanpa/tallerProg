@@ -9,8 +9,9 @@ $resume = $_POST["resume"];
 $date = $_POST["date"];
 $actors = $_POST["actors"];
 $trailer = $_POST["trailerLink"];
+$imgExtension =  explode('.', $_FILES['image']['name'])[1];
 
-addMovie($title, $genre, $date, $resume, $director, $trailer);
+addMovie($title, $genre, $date, $resume, $director, $trailer, $imgExtension);
 
 $actors = explode(", ", $actors);
 foreach ($actors as $actor) {
@@ -20,8 +21,6 @@ foreach ($actors as $actor) {
 if($_FILES['image']['name'])
 {
   $movieId = getMovieId();
-  $imgExtension =  explode('.', $_FILES['image']['name'])[1];
-
   move_uploaded_file($_FILES['image']['tmp_name'], "/var/www/tallerProg/img/$movieId.$imgExtension");
 }
 
