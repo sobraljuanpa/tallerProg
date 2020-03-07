@@ -49,12 +49,6 @@ function createUser($mail, $alias, $password) {
     ));
 }
 
-function getMovieId() {
-    $cn = abrirConexion();
-    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
-    return $cn->cantidadRegistros();
-}
-
 function addMovie($title, $genre, $date, $resume, $director, $trailer) {
     $cn = abrirConexion();
     $cn->consulta('INSERT INTO peliculas(titulo, id_genero, fecha_lanzamiento, resumen, director, youtube_trailer) VALUES (:title, :genre, :date, :resume, :director, :trailer)', array(
@@ -69,8 +63,7 @@ function addMovie($title, $genre, $date, $resume, $director, $trailer) {
 
 function addCast($actor) {
     $cn = abrirConexion();
-    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
-    $indicePelicula = $cn->cantidadRegistros();
+    $indicePelicula = $cn->ultimoIdInsert();
     $cn->consulta('INSERT INTO elencos(id_pelicula, nombre) VALUES (:id_pelicula, :nombre)', array(
         array("id_pelicula", $indicePelicula, 'int'),
         array("nombre", $actor, 'string')
