@@ -173,7 +173,7 @@ function numberOfPages() {
 }
 
 function getMoviesByPage($page) {
-    $size = 3;
+    $size = 6;
     $offset = ($page - 1) * $size;
 
     $cn = abrirConexion();

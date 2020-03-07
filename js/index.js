@@ -26,7 +26,7 @@ function cargar() {
     });
 }
 
-/*$(document).ready(function () {
+$(document).ready(function () {
 
     $(".categoria").click(function () {
         categoria = $(this).attr("catId");
@@ -35,4 +35,3 @@ function cargar() {
     });
     cargar();
 });
-*/

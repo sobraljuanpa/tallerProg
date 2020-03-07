@@ -1,10 +1,22 @@
 <div class="bs-example">
         <div class="container">
             <!--<div class="row">-->
-                <div class="card-deck">
-                {foreach from=$peliculas item=pelicula}
-                    {include file="movieCard.tpl" pelicula=$pelicula}
-                {/foreach}
+                {assign var=contador value=$contador+1}
+                    <div class="card-deck">
+                    {foreach from=$peliculas item=pelicula}
+                        {if $contador < 4}
+                        {include file="movieCard.tpl" pelicula=$pelicula}
+                        {assign var=contador value=$contador+1}
+                        {else if $contador == 3}
+                            </div>
+                        {else}
+                            <div class="card-deck">
+                            {include file="movieCard.tpl" pelicula=$pelicula}
+                            {assign var=contador value=$contador+1}
+                        {/if}
+                    {/foreach}
+                    </div>
+                
         </div>
 </div>
 <div id="paginacion">
