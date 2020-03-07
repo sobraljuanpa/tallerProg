@@ -49,23 +49,29 @@ function createUser($mail, $alias, $password) {
     ));
 }
 
-function addMovie($title, $genre, $date, $resume, $director, $trailer) {
+function addMovie($title, $genre, $date, $resume, $director, $trailer, $extension) {
     $cn = abrirConexion();
-    $cn->consulta('INSERT INTO peliculas(titulo, id_genero, fecha_lanzamiento, resumen, director, youtube_trailer) VALUES (:title, :genre, :date, :resume, :director, :trailer)', array(
+    $cn->consulta('INSERT INTO peliculas(titulo, id_genero, fecha_lanzamiento, resumen, director, youtube_trailer, extension) VALUES (:title, :genre, :date, :resume, :director, :trailer, :extension)', array(
         array("title", $title, 'string'),
         array("genre", $genre, 'int'),
         array("date", $date, 'string'),
         array("resume", $resume, 'string'),
         array("director", $director, 'string'),
-        array("trailer", $trailer, 'string')
+        array("trailer", $trailer, 'string'),
+        array("extension", $extension, 'string')
     ));
 }
 
-function addCast($actor) {
+function getLastMovieId() {
     $cn = abrirConexion();
-    $indicePelicula = $cn->ultimoIdInsert();
+    $cn->consulta('SELECT * FROM peliculas');
+    return $cn->cantidadRegistros();
+}
+
+function addCast($actor, $movieId) {
+    $cn = abrirConexion();
     $cn->consulta('INSERT INTO elencos(id_pelicula, nombre) VALUES (:id_pelicula, :nombre)', array(
-        array("id_pelicula", $indicePelicula, 'int'),
+        array("id_pelicula", $movieId, 'int'),
         array("nombre", $actor, 'string')
     ));
 }
