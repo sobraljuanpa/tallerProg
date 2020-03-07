@@ -157,6 +157,35 @@ function getPeliculaPorId($id){
     return NULL;
 }
 
+function numberOfPages() {
+
+    $size = 3;
+    $cn = abrirConexion();
+    $cn->consulta(
+            'SELECT count(*) as total FROM peliculas ');
+    $fila = $cn->siguienteRegistro();
+    $total = $fila["total"];
+    $pages = ceil($total / $size);
+    if ($pages==0) { 
+        $pages=1;
+    };
+    return $pages;
+}
+
+function getMoviesByPage($page) {
+    $size = 3;
+    $offset = ($page - 1) * $size;
+
+    $cn = abrirConexion();
+    $cn->consulta(
+        'SELECT * FROM peliculas '
+        . 'LIMIT :offset, :size', array(
+        array("offset", $offset, 'int'),
+        array("size", $size, 'int'),
+        ));
+    return $cn->restantesRegistros();
+}
+
 function getSmarty() {
     $mySmarty = new SmartyBC();
     $mySmarty->template_dir = 'templates';
