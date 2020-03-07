@@ -16,8 +16,8 @@
         {if (isset($pelicula))}
             <div class="card mb-3 w-75 mx-auto">
                     <div w-75 mx-auto>
-                    <iframe id="1.video" style="visibility:hidden" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    <img id="1" src="4838218.jpg" class="card-img-top w-25 mx-auto">
+                    <iframe style="visibility:hidden" src="{$pelicula.youtube_trailer}"></iframe>
+                    <img src="img/{$pelicula.id}.{$pelicula.extension}" class="card-img-top w-25 mx-auto">
                     </div>
             <div class="card-body">
                 <h5 class="card-title">{$pelicula.titulo}</h5>
