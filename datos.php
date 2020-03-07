@@ -92,6 +92,16 @@ function getCommentById($id) {
     return NULL;
 }
 
+function getCommentMovieId($id) {
+    foreach (getComentarios() as $comentario){
+        if($comentario["id"]== $id) {
+            return $comentario["id_pelicula"];
+        }
+    }
+    
+    return NULL;
+}
+
 function approveComment($id) {
     $cn = abrirConexion();
     $cn->consulta('UPDATE comentarios SET estado = "APROBADO" WHERE id = :id', array(
@@ -106,7 +116,7 @@ function rejectComment($id) {
     ));
 }
 
-function getMovieRatings($movieId) {
+function getMovieRating($movieId) {
     $ratings = array();
 
     foreach (getComentarios() as $comentario){
@@ -116,6 +126,14 @@ function getMovieRatings($movieId) {
     }
     
     return array_sum($ratings)/count($ratings);
+}
+
+function updateMovieScore($movieId) {
+    $movieScore = getMovieRating($movieId);
+
+    $cn = abrirConexion();
+    
+    $cn->consulta("UPDATE peliculas SET puntuacion = $movieScore WHERE id = $movieId");
 }
 
 function getPeliculas() {

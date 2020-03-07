@@ -24,10 +24,10 @@
                     <div class="card bg-dark text-white">
                         <div class="card-body">
                             {$comentario.mensaje}
-                            <a href="doApproveComment.php?id={$comentario.id}">
+                            <a href="doRejectComment.php?id={$comentario.id}">
                                 <button type="button" class="btn btn-danger" style="margin-left: 10px; float:right">Rechazar</button>
                             </a>
-                            <a href="doRejectComment.php?id={$comentario.id}">
+                            <a href="doApproveComment.php?id={$comentario.id}">
                                 <button type="button" class="btn btn-primary" style="margin-left: 10px; float:right">Aprobar</button>
                             </a>
                         </div>

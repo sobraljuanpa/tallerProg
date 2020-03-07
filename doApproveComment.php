@@ -3,9 +3,12 @@
 
   if(isset($_GET["id"])) {
       $commentId = $_GET["id"];
-      $comment = getCommentById($commentId);
       
       approveComment($commentId);
+
+      $movieId = getCommentMovieId($commentId);
+
+      updateMovieScore($movieId);
   }
 
   header('location:index.php');
