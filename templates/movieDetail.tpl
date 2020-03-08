@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/movieDetail.js"></script>
 </head>
 <body>
     {include file="navBar.tpl"}
@@ -15,9 +16,11 @@
            
         {if (isset($pelicula))}
             <div class="card mb-3 w-75 mx-auto">
-                    <div w-75 mx-auto>
-                    <iframe style="visibility:hidden" src="{$pelicula.youtube_trailer}"></iframe>
-                    <img src="img/{$pelicula.id}.{$pelicula.extension}" class="card-img-top w-25 mx-auto">
+                    <div id="image" style="width:100%; text-align:center">
+                      <img src="img/{$pelicula.id}.{$pelicula.extension}" class="card-img-top w-25 mx-auto">
+                    </div>
+                    <div id="video" class="embed-responsive embed-responsive-16by9 col-xs-12 text-center" style="display: none;">
+                      <iframe class="embed-responsive-item" src="{$pelicula.youtube_trailer}" align="center" id="videothumbnail"></iframe>
                     </div>
             <div class="card-body">
                 <h5 class="card-title"><b>Título: </b>{$pelicula.titulo}</h5>
@@ -52,11 +55,14 @@
                 </p>
                 <p class="card-text"><b>Resumen: </b>{$pelicula.resumen}</p>
                 <p class="card-text"><b>Director: </b>{$pelicula.director}</p>
+                {if $pelicula.youtube_trailer!=""}
+                  <button type="button" class="btn btn-primary" onClick="showVideo()">Ver trailer</button>
+                {/if}
                 {else}
                     <h1>No existe dicha película</h1>
                 
         {/if}
-              
+        
         </div>
       </div>
 </body>

@@ -170,8 +170,7 @@ function numberOfPages($filtro = "", $category="") {
 
     $size = 3;
     $cn = abrirConexion();
-    $cn->consulta(
-            "SELECT count(*) as total FROM peliculas WHERE titulo LIKE '%$filtro%' AND id_genero LIKE '%$category%'");
+    $cn->consulta("SELECT count(*) as total FROM peliculas WHERE titulo LIKE '%$filtro%' AND id_genero LIKE '%$category%'");
     $fila = $cn->siguienteRegistro();
     $total = $fila["total"];
     $pages = ceil($total / $size);
