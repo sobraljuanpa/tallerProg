@@ -10,6 +10,6 @@
       $mySmarty->assign("user", $user);
   }
 
+  $mySmarty->assign("contador",0);
   $mySmarty->assign("peliculas",getPeliculas());
   $mySmarty->display('index.tpl');
-

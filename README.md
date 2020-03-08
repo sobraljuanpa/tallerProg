@@ -1,5 +1,16 @@
 # tallerProg
 
+## Importante imagenes
+
+Es importante tener los permisos para poder guardar imagenes.
+Para eso meter un chmod 777 a la carpeta /img
+
+## IMPORTANTE transferencia al server
+
+```
+scp -r . root@192.168.56.101:/var/www/tallerProg
+```
+
 ## IMPORTANTE SMARTY
 
 Es importante tener permisos para mostrar lso templates de smarty.
