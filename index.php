@@ -12,7 +12,4 @@
 
   $mySmarty->assign("contador",0);
   $mySmarty->assign("peliculas",getPeliculas());
-  $mySmarty->assign("stars", arrayOfStars());
   $mySmarty->display('index.tpl');
-  
-

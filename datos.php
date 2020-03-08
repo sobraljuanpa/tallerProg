@@ -148,7 +148,6 @@ function getMoviesNotCommented($id) {
         }
     }
     return $items;
->>>>>>> origin/fede-DB
 }
 
 function getPeliculas() {
