@@ -8,7 +8,7 @@ session_start();
 if (isset($_SESSION["loggedUser"])) {
     $user = $_SESSION["loggedUser"];
     $mySmarty->assign("user", $user);
-    $mySmarty->assign("peliculas",getMoviesNotCommented($id["id"]));
+    $mySmarty->assign("peliculas",getMoviesNotCommented($user["id"]));
 }
 
 $mySmarty->display('addComment.tpl');
