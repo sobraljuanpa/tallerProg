@@ -76,30 +76,21 @@ function addCast($actor, $movieId) {
     ));
 }
 
+function addComment($id_movie, $comment, $stars, $id_user, $state){
+    $cn = abrirConexion();
+    $cn->consulta('INSERT INTO comentarios(id_pelicula, mensaje, puntuacion, id_usuario, estado) VALUES (:id_movie, :comment, :stars, :id_user, :state)', array(
+        array("id_movie", $id_movie, 'int'),
+        array("comment", $comment, 'string'),
+        array("stars", $stars, 'float'),
+        array("id_user", $id_user, 'int'),
+        array("state", $state, 'string')
+    ));
+}
+
 function getComentarios() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM comentarios ORDER BY puntuacion');
     return $cn->restantesRegistros();
-}
-
-function getCommentById($id) {
-    foreach (getComentarios() as $comentario){
-        if($comentario["id"]== $id) {
-            return $comentario;
-        }
-    }
-    
-    return NULL;
-}
-
-function getCommentMovieId($id) {
-    foreach (getComentarios() as $comentario){
-        if($comentario["id"]== $id) {
-            return $comentario["id_pelicula"];
-        }
-    }
-    
-    return NULL;
 }
 
 function approveComment($id) {
@@ -136,6 +127,30 @@ function updateMovieScore($movieId) {
     $cn->consulta("UPDATE peliculas SET puntuacion = $movieScore WHERE id = $movieId");
 }
 
+function filterCommentsByUser($id){
+    $comments = getComentarios();
+    $filterComments = array();
+    foreach ($comments as $comment) {
+        if($comment["id_usuario"]==$id){
+            $filterComments[] = $comment["id_pelicula"];
+        }
+    }
+    return $filterComments;
+}
+
+function getMoviesNotCommented($id) {
+    $filterComments = filterCommentsByUser($id);
+    $peliculas = getPeliculas();
+    $items = array();
+    foreach($peliculas as $pelicula){
+        if(!in_array($pelicula["id"], $filterComments)){
+            $items[] = $pelicula;
+        }
+    }
+    return $items;
+>>>>>>> origin/fede-DB
+}
+
 function getPeliculas() {
     $cn = abrirConexion();
     $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
@@ -148,8 +163,33 @@ function getPeliculaPorId($id){
             return $pelicula;
         }
     }
-    
+
     return NULL;
+}
+
+function numberOfPages() {
+
+    $size = 3;
+    $cn = abrirConexion();
+    $cn->consulta(
+            'SELECT count(*) as total FROM peliculas ');
+    $fila = $cn->siguienteRegistro();
+    $total = $fila["total"];
+    $pages = ceil($total / $size);
+    if ($pages==0) { 
+        $pages=1;
+    };
+    return $pages;
+}
+
+function getMoviesByPage($page, $filtro = "") {
+    $size = 5;
+    $offset = ($page - 1) * $size;
+    $filter = '%' . $filtro . '%';
+
+    $cn = abrirConexion();
+    $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%$filtro%' LIMIT $offset, $size");
+    return $cn->restantesRegistros();
 }
 
 function getSmarty() {
@@ -159,4 +199,10 @@ function getSmarty() {
     $mySmarty->config_dir = 'config';
     $mySmarty->cache_dir = 'cache';
     return $mySmarty;
+}
+
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
 }

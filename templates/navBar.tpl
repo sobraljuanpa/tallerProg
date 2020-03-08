@@ -11,7 +11,7 @@
         </li>
           {if (isset($user))}
             <li class="nav-item">
-              <a class="nav-link" href="agregarComentario.php">Agregar comentario</a>
+              <a class="nav-link" href="addComment.php">Agregar comentario</a>
             </li>
             {if $user["es_admin"] == "1"}
               <li class="nav-item"><a class="nav-link" href="addMoviePage.php">Agregar película</a></li>
