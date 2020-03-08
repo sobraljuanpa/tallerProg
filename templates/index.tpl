@@ -23,6 +23,17 @@
             <label>Ingresa tu busqueda</label>
             <input type="text" id="texto"/>
             <input type="button" value="Buscar" id="buscar" />
+    <select class="custom-select" id="category">
+                <option value="">Filtrar por categoria</option>
+                <option value="1">Acción</option>
+                <option value="2">Comedia</option>
+                <option value="3">Drama</option>
+                <option value="4">Musicales</option>
+                <option value="5">Terror</option>
+                <option value="6">Ciencia Ficción</option>
+                <option value="7">Suspenso</option>
+                <option value="8">Infantiles</option>        
+    </select>
     </div>
     <div id="movies">
            

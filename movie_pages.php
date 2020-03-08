@@ -13,8 +13,8 @@ if (isset($_GET["pag"])) {
 
 # setear variables
 $mySmarty->assign("pagina", $pag);
-$mySmarty->assign("paginas", numberOfPages());
-$mySmarty->assign("peliculas", getMoviesByPage($pag, $_GET['busqueda']));
+$mySmarty->assign("paginas", numberOfPages($_GET['busqueda'],$_GET['category']));
+$mySmarty->assign("peliculas", getMoviesByPage($pag, $_GET['busqueda'],$_GET['category']));
 
 # mostrar el template
 $mySmarty->display('pagedMovies.tpl');
