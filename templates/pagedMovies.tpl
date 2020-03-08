@@ -4,7 +4,8 @@
                 {assign var=contador value=$contador+1}
                     <div class="card-deck">
                     {foreach from=$peliculas item=pelicula}
-                        {if $contador < 3}
+                        {include file="movieCard.tpl" pelicula=$pelicula}
+                        <!--{if $contador < 3}
                         {include file="movieCard.tpl" pelicula=$pelicula}
                         {assign var=contador value=$contador+1}
                         {else if $contador == 3}
@@ -15,7 +16,7 @@
                         {else}
                             {include file="movieCard.tpl" pelicula=$pelicula}
                             {assign var=contador value=$contador+1}
-                        {/if}
+                        {/if}-->
                     {/foreach}
                     </div>
                 

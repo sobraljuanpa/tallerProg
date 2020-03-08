@@ -173,7 +173,7 @@ function numberOfPages() {
 }
 
 function getMoviesByPage($page, $filtro = "") {
-    $size = 6;
+    $size = 5;
     $offset = ($page - 1) * $size;
     $filter = '%' . $filtro . '%';
 
