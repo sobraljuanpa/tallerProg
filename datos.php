@@ -172,17 +172,13 @@ function numberOfPages() {
     return $pages;
 }
 
-function getMoviesByPage($page) {
+function getMoviesByPage($page, $filtro = "") {
     $size = 6;
     $offset = ($page - 1) * $size;
+    $filter = '%' . $filtro . '%';
 
     $cn = abrirConexion();
-    $cn->consulta(
-        'SELECT * FROM peliculas '
-        . 'LIMIT :offset, :size', array(
-        array("offset", $offset, 'int'),
-        array("size", $size, 'int'),
-        ));
+    $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%$filtro%' LIMIT $offset, $size");
     return $cn->restantesRegistros();
 }
 

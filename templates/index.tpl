@@ -19,6 +19,11 @@
 </head>
 <body>
     {include file="navBar.tpl"}
+    <div id="buscador">
+            <label>Ingresa tu busqueda</label>
+            <input type="text" id="texto"/>
+            <input type="button" value="Buscar" id="buscar" />
+    </div>
     <div id="movies">
            
     </div>
