@@ -1,80 +1,35 @@
 # tallerProg
 
-## Importante imagenes
+## Comandos instalación
 
-Es importante tener los permisos para poder guardar imagenes.
-Para eso meter un chmod 777 a la carpeta /img
-
-## IMPORTANTE transferencia al server
-
+(Sesion de terminal abierta en la maquina virtual)
+Creo la carpeta que va a contener al obligatorio en la máquina virtual:
 ```
-scp -r . root@192.168.56.101:/var/www/tallerProg
+cd /var/www
+mkdir tallerProg
 ```
 
-## IMPORTANTE SMARTY
+(Sesion de terminal abierta en mi equipo)
+Me paro en la carpeta que contiene la aplicación y la copio a mi máquina virtual:
+```
+scp -r . $usuario@$ipVM:/var/www/tallerProg
+```
 
-Es importante tener permisos para mostrar lso templates de smarty.
-Se puede hacer de 2 maneras
+(Sesion de terminal abierta en la maquina virtual)
+Listo los contenidos del directorio para chequear que estén todos presentes, en caso de haber alguno de los directorios auxiliares de Smarty(cache, config, templates_c) faltantes lo creo:
+```
+cd /var/www/tallerProg
+ls
+mkdir $nombreDirectorio
+```
 
-+ Logueado a la consola y en el dir de la pag meter un chmod 777 a cache, config, templates y templates_c
-+ Meter el scp con -rp que la p preserva los permisos locales, setearlos como arriba y darle
-
-
-## Colores
-
-+ Navbar: Dark
-+ Boton principal: Dark
-+ Fondo: blanco
-
-## Paginas
-+ Home
-    + Navbar
-        + Opciones rol
-        + Login Registro
-    + Barra buscador/filtros
-    + Tarjetas con peliculas
-        + Header: Titulo
-        + Body: Poster
-        + Footer: Genero y puntuacion
-+ Detalle
-    + Navbar
-        + Opciones rol
-        + Login Registro
-    + Detalle pelicula
-        + Titulo
-        + Poster
-        + FechaLanzamiento
-        + Resumen
-        + Nombre director + actores principales
-        + Opcional video trailer
-    + Comentarios
-+ Alta Comentario
-    + Navbar
-        + Opciones rol
-        + Login Registro
-    + Formulario comentario
-        + Texto
-        + Puntaje
-+ Alta pelicula (Admin)
-    + Navbar
-        + Opciones rol
-        + Login Registro
-    + Formulario pelicula
-        + Titulo
-        + Poster
-        + FechaLanzamiento
-        + Resumen
-        + Nombre director + actores principales
-        + Opcional video trailer
-+ Aprobacion comentarios (Admin)
-    + Navbar
-        + Opciones rol
-        + Login Registro
-    + Tarjetas con comentarios
-        + Body
-            + Comentario
-        + Footer
-            + Boton aprobar
-            + Boton denegar
-+ Registro
-+ Inicio sesion
+(Sesion de terminal abierta en la maquina virtual)
+Cambio los permisos sobre las carpetas que utiliza Smarty y la carpeta en la cual se van a almacenar los poster:
+```
+cd /var/www/tallerProg
+chmod 777 cache
+chmod 777 config
+chmod 777 templates
+chmod 777 templates_c 
+chmod 777 img
+```
