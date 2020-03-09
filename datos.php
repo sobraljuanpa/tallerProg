@@ -170,7 +170,7 @@ function getPeliculaPorId($id){
 
 function numberOfPages($filtro = "", $category="") {
 
-    $size = 3;
+    $size = 5;
     $cn = abrirConexion();
     $cn->consulta("SELECT count(*) as total FROM peliculas WHERE titulo LIKE '%$filtro%' AND id_genero LIKE '%$category%'");
     $fila = $cn->siguienteRegistro();
