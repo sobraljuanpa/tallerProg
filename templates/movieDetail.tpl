@@ -56,7 +56,7 @@
                 <p class="card-text"><b>Resumen: </b>{$pelicula.resumen}</p>
                 <p class="card-text"><b>Director: </b>{$pelicula.director}</p>
                 {if $pelicula.youtube_trailer!=""}
-                  <button type="button" class="btn btn-primary" onClick="showVideo()">Ver trailer</button>
+                  <button type="button" id="videoButton" class="btn btn-primary" onClick="showVideo()">Ver trailer</button>
                 {/if}
                 {else}
                     <h1>No existe dicha película</h1>
