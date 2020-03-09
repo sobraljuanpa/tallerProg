@@ -16,7 +16,7 @@ $movieId = getLastMovieId();
 
 $actors = explode(", ", $actors);
 foreach ($actors as $actor) {
-    addCast($actor);
+    addCast($actor, $movieId);
 }
 
 if($_FILES['image']['name'])
