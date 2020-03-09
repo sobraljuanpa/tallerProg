@@ -23,26 +23,27 @@
         <div id="buscador">
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <label>Ingresa tu busqueda</label>
+                    <label><b>Ingresa tu busqueda</b></label>
                 </li>
                 <li>
                     <input style="margin-left: 10px" type="text" class="form-control" id="texto"/>
                 </li>
-                <li style="margin-left: 20px">
-                    <input type="button" value="Buscar" id="buscar" />
-                </li>
-                <li style="margin-left: 20px">
+                <li style="margin-left: 10px">
                     <select class="custom-select" id="category">
                         <option value="">Filtrar por categoria</option>
                         <option value="1">Acción</option>
-                        <option value="2">Comedia</option>
-                        <option value="3">Drama</option>
-                        <option value="4">Musicales</option>
-                        <option value="5">Terror</option>
-                        <option value="6">Ciencia Ficción</option>
-                        <option value="7">Suspenso</option>
-                        <option value="8">Infantiles</option>        
+                        <option value="2">Aventuras</option>
+                        <option value="3">Comedia</option>
+                        <option value="4">Drama</option>
+                        <option value="5">Musicales</option>
+                        <option value="6">Terror</option>
+                        <option value="7">Ciencia Ficción</option>
+                        <option value="8">Suspenso</option>
+                        <option value="9">Infantiles</option>        
                     </select>
+                </li>
+                <li style="margin-left: 10px">
+                    <input type="button"  class="btn btn-primary" value="Buscar" id="buscar" />
                 </li>
             </ul>
             
