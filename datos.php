@@ -69,8 +69,9 @@ function getLastMovieId() {
     return $cn->cantidadRegistros();
 }
 
-function addCast($actor, $movieId) {
+function addCast($actor) {
     $cn = abrirConexion();
+    $movieId = getLastMovieId();
     $cn->consulta('INSERT INTO elencos(id_pelicula, nombre) VALUES (:id_pelicula, :nombre)', array(
         array("id_pelicula", $movieId, 'int'),
         array("nombre", $actor, 'string')
