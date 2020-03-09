@@ -167,12 +167,11 @@ function getPeliculaPorId($id){
     return NULL;
 }
 
-function numberOfPages() {
+function numberOfPages($filtro = "", $category="") {
 
     $size = 3;
     $cn = abrirConexion();
-    $cn->consulta(
-            'SELECT count(*) as total FROM peliculas ');
+    $cn->consulta("SELECT count(*) as total FROM peliculas WHERE titulo LIKE '%$filtro%' AND id_genero LIKE '%$category%'");
     $fila = $cn->siguienteRegistro();
     $total = $fila["total"];
     $pages = ceil($total / $size);
@@ -182,13 +181,11 @@ function numberOfPages() {
     return $pages;
 }
 
-function getMoviesByPage($page, $filtro = "") {
+function getMoviesByPage($page, $filtro = "", $category="") {
     $size = 5;
     $offset = ($page - 1) * $size;
-    $filter = '%' . $filtro . '%';
-
     $cn = abrirConexion();
-    $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%$filtro%' LIMIT $offset, $size");
+    $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%$filtro%' AND id_genero LIKE '%$category%' LIMIT $offset, $size");
     return $cn->restantesRegistros();
 }
 

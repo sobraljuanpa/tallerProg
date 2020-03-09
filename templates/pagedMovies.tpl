@@ -22,8 +22,8 @@
                 
         </div>
 </div>
-<div id="paginacion">
-    <button id="anterior" {if ($pagina<=1)}disabled{/if}>Anterior</button>
+<div id="paginacion" align="center">
+    <button class="btn btn-primary" id="anterior" {if ($pagina<=1)}disabled{/if}>Anterior</button>
     Pagina {$pagina} de {$paginas}
-    <button id="siguiente" {if ($pagina>=$paginas)}disabled{/if}>Siguiente</button>
+    <button class="btn btn-primary" id="siguiente" {if ($pagina>=$paginas)}disabled{/if}>Siguiente</button>
 </div>

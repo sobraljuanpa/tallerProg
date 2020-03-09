@@ -1,16 +1,19 @@
 var categoria = 1;
 var pagina = 1;
 var texto= "";
+var category="";
 
 function cargar() {
 
     texto = $("#texto").val();
+    category = $('#category option:selected').val();
     console.log(texto);
     $.ajax({
         url: "movie_pages.php",
         data: {
             pag: pagina,
-            busqueda: texto
+            busqueda: texto,
+            category: category
         },
         dataType: "html"
     }).done(function (resp) {
@@ -40,7 +43,7 @@ $(document).ready(function () {
     });
 
     $("#buscar").click(function() {
-        //pagina=1;
+        pagina=1;
         cargar();
     });
 
