@@ -68,7 +68,7 @@ INSERT INTO `elencos` (`id`, `id_pelicula`, `nombre`) VALUES
 (3, 2, 'Kallan Holley'),
 (4, 2, 'Carter Thorne'),
 (6, 2, 'Berkley Silverman'),
-(7, 3, 'Keanu Reeves')
+(7, 3, 'Keanu Reeves'),
 (8, 4, 'Brad Pitt'),
 (9, 4, 'Jason Statham'),
 (10, 5, 'Jason Statham'),
