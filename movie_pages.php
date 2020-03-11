@@ -12,9 +12,10 @@ if (isset($_GET["pag"])) {
 }
 
 # setear variables
+#ACA AGREGUE EL GET AMOUNT EN LAS ULTIMAS DOS ASIGNACIONES
 $mySmarty->assign("pagina", $pag);
-$mySmarty->assign("paginas", numberOfPages($_GET['busqueda'],$_GET['category']));
-$mySmarty->assign("peliculas", getMoviesByPage($pag, $_GET['busqueda'],$_GET['category']));
+$mySmarty->assign("paginas", numberOfPages($_GET['busqueda'],$_GET['category'],$_GET['amount']));
+$mySmarty->assign("peliculas", getMoviesByPage($pag, $_GET['busqueda'],$_GET['category'],$_GET['amount']));
 
 # mostrar el template
 $mySmarty->display('pagedMovies.tpl');

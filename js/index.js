@@ -7,13 +7,15 @@ function cargar() {
 
     texto = $("#texto").val();
     category = $('#category option:selected').val();
+    amount = $('#amount option:selected').val();
     console.log(texto);
     $.ajax({
         url: "movie_pages.php",
         data: {
             pag: pagina,
             busqueda: texto,
-            category: category
+            category: category,
+            amount: amount
         },
         dataType: "html"
     }).done(function (resp) {

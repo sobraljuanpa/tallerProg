@@ -44,6 +44,14 @@
                         <option value="8">Infantiles</option>        
                     </select>
                 </li>
+                {* ACA SE AGREGA ESTE LI *}
+                <li style="margin-left: 20px">
+                    <select class="custom-select" id="amount">
+                        <option value="5">Mostrar de a 5</option>
+                        <option value="10">Mostrar de a 10</option>
+                        <option value="15">Mostrar de a 15</option>        
+                    </select>
+                </li>
             </ul>
             
         </div>
